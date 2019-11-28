@@ -23,9 +23,10 @@ pipeline {
                 sh 'mvn -f initial/pom.xml clean test' 
             }
         }
-        post {
-            success {
-                junit 'target/surefire-reports/**/*.xml' 
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml' 
+                }
             }
         }
     }
