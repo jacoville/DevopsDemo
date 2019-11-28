@@ -1,16 +1,16 @@
 #!/usr/bin/env groovy
 
-properties([
-    buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')),
-    disableConcurrentBuilds()
-])
+pipeline {
+    agent any
+    tools {
+        maven 'Maven 3.6.3'
+    }
 
 node {
     stage('Checkout') {
     }
     
     stage ('Build') {
-        withMaven(globalMavenSettingsConfig: "pom.xml", maven: "maven") {
             sh 'mvn clean deploy'
         }
     }
