@@ -15,7 +15,11 @@ pipeline {
 
         stage ('Build') {
             steps {
-                sh 'mvn -f initial/pom.xml -Dmaven.test.failure.ignore=true install' 
+                sh 'mvn -f initial/pom.xml install' 
+            }
+        stage ('Test') {
+            steps {
+                sh 'mvn -f initial/pom.xml clean test' 
             }
             post {
                 success {
