@@ -16,7 +16,7 @@ pipeline {
             }
             post {
                 success {
-                    junit 'target/**/*.xml' 
+                    junit 'complete/target/**/*.xml' 
                 }
             }
         }
