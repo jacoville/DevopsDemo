@@ -14,11 +14,11 @@ pipeline {
             steps {
                 sh 'mvn -f complete/pom.xml clean test' 
             }
-            //post {
-                //success {
-                    //junit 'target/surefire-reports/**/*.xml' 
-                //}
-            //}
+            post {
+                success {
+                    junit 'target/**/*.xml' 
+                }
+            }
         }
     }
 }
