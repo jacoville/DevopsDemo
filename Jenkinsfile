@@ -7,12 +7,12 @@ pipeline {
 
         stage ('Build') {
             steps {
-                sh 'mvn -f initial/pom.xml install' 
+                sh 'mvn -f complete/pom.xml install' 
             }
         }
         stage ('Test') {
             steps {
-                sh 'mvn -f initial/pom.xml clean test' 
+                sh 'mvn -f complete/pom.xml clean test' 
             }
             //post {
                 //success {
